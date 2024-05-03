@@ -49,8 +49,7 @@ function siftObject<TSource extends Object>(
 
   const result = {} as any;
 
-  for (const filterKey in filter) {
-    const filterValue = filter[filterKey];
+  for (const [filterKey, filterValue] of Object.entries(filter)) {
 
     // shortcut out if any of the filters are All
     // this way we don't have to ensure that source[key] is an Object for filter
@@ -58,7 +57,7 @@ function siftObject<TSource extends Object>(
       result[filterKey] = (source as any)[filterKey];
       continue;
     }
-    
+
     const [isValueObject, objectValue] = tryAsObject((source as any)[filterKey]);
 
     if (isValueObject) {
