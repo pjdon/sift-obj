@@ -2,12 +2,23 @@
   "name": "sift-obj",
   "version": "1.0.0",
   "description": "Filter a JS object based on keys and structure",
-  "main": "./index.ts",
-  "scripts": {
-    "test": "jest"
-  },
   "author": "Paul Donchenko",
   "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18.20.2"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
